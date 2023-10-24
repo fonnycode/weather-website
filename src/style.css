@@ -7,8 +7,6 @@ body {
   line-height: 1.6;
 }
 
-
-
 .container {
   text-align: center;
   font-size: 18px;
@@ -17,13 +15,11 @@ body {
 .localDate {
   font-weight: 300;
 }
-
 .localTime {
   font-weight: 300;
 }
-
 .city {
-  font-size: 70px;
+  font-size: 65px;
   text-transform: capitalize;
 }
 
@@ -43,20 +39,11 @@ body {
 
 .sun-icon {
   font-size: 120px;
-
 }
 
-.status-temp {
+.humidity-level {
   text-align: center;
   font-size: 18px;
-  font-weight: bold;
-}
-
-.measure-temp {
-  text-align: center;
-  font-size: 18px;
-  font-weight: lighter;
-  line-height: 8em;
 }
 
 .weather-forecast {
