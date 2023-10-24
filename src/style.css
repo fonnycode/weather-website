@@ -15,9 +15,11 @@ body {
 .localDate {
   font-weight: 300;
 }
+
 .localTime {
   font-weight: 300;
 }
+
 .city {
   font-size: 65px;
   text-transform: capitalize;
@@ -50,4 +52,10 @@ body {
   display: static;
   align-items: center;
   font-size: 20px;
+}
+
+.codedBy {
+  font-size: small;
+  color: grey;
+
 }
