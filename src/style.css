@@ -5,6 +5,7 @@ body {
   margin: 0 auto;
   padding: 70px 70px;
   line-height: 1.6;
+  border: 1px solid #dadde1;
 }
 
 .container {
