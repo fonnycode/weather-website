@@ -55,12 +55,14 @@ function findingCity(event) {
   let apiKey = "9tce7490b0da29acf6b444190735fo2f";
   let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${inputCity.value}&key=${apiKey}&units=metric`;
   axios.get(apiUrl).then(localTemperature);
+  console.log(apiUrl);
 }
 
 let inputForm = document.querySelector("#searching-forms");
 inputForm.addEventListener("submit", findingCity);
 
 function localTemperature(response) {
+  console.log(response.data);
   let element = document.querySelector("#actual-temp");
   let locationTemp = response.data.temperature.current;
   let resultTemp = Math.round(locationTemp);
@@ -78,16 +80,16 @@ function localTemperature(response) {
 }
 
 function gotPosition(position) {
-  let lat = position.coordinates.latitude;
-  let long = position.coordinates.longitude;
+  let long = position.data.coordinates.longitude;
+  let lat = position.data.coordinates.latitude;
   let apiKey = "9tce7490b0da29acf6b444190735fo2f";
-  let apiUrl = `https://api.shecodes.io/weather/v1/current?lon=${long}&lat=${lat}&key=${apiKey}&units=metric`;
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?lat=${lat}&lon=${long}&key=${apiKey}&units=metric`;
   console.log(apiUrl);
   axios.get(apiUrl).then(localTemperature);
 }
-function getLocationPosition(event) {
-  event.preventDefault();
-  navigator.geolocation.getLocationPosition(gotPosition);
+function getCurrentPosition(events) {
+  events.preventDefault();
+  navigator.geolocation.getCurrentPosition();
 }
 let buttonLoc = document.querySelector("#locally-button");
-buttonLoc.addEventListener("click", getLocationPosition);
+buttonLoc.addEventListener("click", getCurrentPosition);

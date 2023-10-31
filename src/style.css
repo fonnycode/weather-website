@@ -9,7 +9,7 @@ body {
 }
 
 .container {
-  text-align: left;
+  text-align: center;
   font-size: 18px;
 }
 
@@ -45,8 +45,21 @@ body {
 }
 
 .humidity-level {
-  text-align: center;
+
   font-size: 18px;
+  color: green;
+}
+
+.actual-feel {
+
+  font-size: 18px;
+  color: green;
+}
+
+.wind-speed {
+
+  font-size: 18px;
+  color: green;
 }
 
 .weather-forecast {
