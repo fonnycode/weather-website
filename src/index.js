@@ -35,8 +35,8 @@ function formatDate() {
     minutes = `0${minutes}`;
   }
 
-  let presentlyDays = document.querySelector("#current-date");
-  let presentlyTimes = document.querySelector("#current-time");
+  let presentlyDays = document.querySelector("#actual-date");
+  let presentlyTimes = document.querySelector("#actual-time");
   let calendar = `${days[presently.getDay()]}, ${date} ${
     moon[presently.getMonth()]
   } ${year}`;
@@ -62,9 +62,9 @@ inputForm.addEventListener("submit", findingCity);
 
 function localTemperature(response) {
   let element = document.querySelector("#actual-temp");
-  let locationTemp = Math.round(response.data.temperature.current);
-  let resultTemp = `${locationTemp}°C`;
-  element.innerHTML = resultTemp;
+  let locationTemp = response.data.temperature.current;
+  let resultTemp = Math.round(locationTemp);
+  element.innerHTML = `${resultTemp}°C`;
   let foundCity = document.querySelector(".city");
   foundCity.innerHTML = `${response.data.city}`;
   let feelTemp = document.querySelector(".actual-feel");
@@ -78,12 +78,16 @@ function localTemperature(response) {
 }
 
 function gotPosition(position) {
+  let lat = position.coordinates.latitude;
+  let long = position.coordinates.longitude;
   let apiKey = "9tce7490b0da29acf6b444190735fo2f";
-  let apiUrl = `https://api.shecodes.io/weather/v1/current?lon={coordinates.longitude}&lat={coordinates.latitude}&key=${apiKey}&units=metric`;
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?lon=${long}&lat=${lat}&key=${apiKey}&units=metric`;
+  console.log(apiUrl);
   axios.get(apiUrl).then(localTemperature);
 }
-function getCurrentPosition() {
-  navigator.geolocation.getCurrentPosition(gotPosition);
+function getLocationPosition(event) {
+  event.preventDefault();
+  navigator.geolocation.getLocationPosition(gotPosition);
 }
-let buttonLoc = document.querySelector("#locally");
-buttonLoc.addEventListener("click", getCurrentPosition);
+let buttonLoc = document.querySelector("#locally-button");
+buttonLoc.addEventListener("click", getLocationPosition);
