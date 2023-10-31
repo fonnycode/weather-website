@@ -78,14 +78,8 @@ function localTemperature(response) {
 }
 
 function gotPosition(position) {
-  let lat = position.coordinates.latitude;
-  let long = position.coordinates.longitude;
-  let units = "metric";
-
-  let endPoint = "https://api.shecodes.io/weather/v1/current";
   let apiKey = "9tce7490b0da29acf6b444190735fo2f";
-  let apiUrl = `${endPoint}?lon=${long}&lat=${lat}&key=${apiKey}&units=${units}`;
-  console.log(apiUrl);
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?lon={coordinates.longitude}&lat={coordinates.latitude}&key=${apiKey}&units=metric`;
   axios.get(apiUrl).then(localTemperature);
 }
 function getCurrentPosition() {
