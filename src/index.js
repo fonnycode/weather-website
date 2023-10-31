@@ -52,8 +52,8 @@ function findingCity(event) {
   let inputCity = document.querySelector("#search-cities");
   citiesElement.innerHTML = inputCity.value;
 
-  let apiKey = "25fad9f7e87157d33dde0f82ab269ee8";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${inputCity.value}&appid=${apiKey}&units=metric`;
+  let apiKey = "9tce7490b0da29acf6b444190735fo2f";
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${inputCity.value}&key=${apiKey}&units=metric`;
   axios.get(apiUrl).then(localTemperature);
 }
 
@@ -62,32 +62,29 @@ inputForm.addEventListener("submit", findingCity);
 
 function localTemperature(response) {
   let element = document.querySelector("#actual-temp");
-  let locationTemp = Math.round(response.data.main.temp);
+  let locationTemp = Math.round(response.data.temperature.current);
   let resultTemp = `${locationTemp}°C`;
   element.innerHTML = resultTemp;
   let foundCity = document.querySelector(".city");
-  foundCity.innerHTML = `${response.data.name}`;
-  let maxTemp = document.querySelector(".maximum-temp");
-  maxTemp.innerHTML = Math.round(response.data.main.temp_max);
-  let miniTemp = document.querySelector(".minimum-temp");
-  miniTemp.innerHTML = Math.round(response.data.main.temp_min);
+  foundCity.innerHTML = `${response.data.city}`;
+  let feelTemp = document.querySelector(".actual-feel");
+  let realFeels = Math.round(response.data.temperature.feels_like);
+  feelTemp.innerHTML = `${realFeels}°C`;
   let humidLevel = document.querySelector(".humidity-level");
-  humidLevel.innerHTML = `${response.data.main.humidity}% 💧`;
-  let iconElements = document.querySelector("#icon-element");
-  iconElements.setAttribute(
-    "i",
-    `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
-  );
+  humidLevel.innerHTML = `${response.data.temperature.humidity}%`;
+  let windElement = document.querySelector(".wind-speed");
+  let wind = Math.round(response.data.wind.speed);
+  windElement.innerHTML = `${wind}km/h`;
 }
 
 function gotPosition(position) {
-  console.log(position.data);
-  let lat = position.coords.latitude;
-  let long = position.coords.longitude;
+  let lat = position.coordinates.latitude;
+  let long = position.coordinates.longitude;
   let units = "metric";
-  let endPoint = "https://api.openweathermap.org/data/2.5/weather";
-  let apiKey = "25fad9f7e87157d33dde0f82ab269ee8";
-  let apiUrl = `${endPoint}?lat=${lat}&lon=${long}&appid=${apiKey}&units=${units}`;
+
+  let endPoint = "https://api.shecodes.io/weather/v1/current";
+  let apiKey = "9tce7490b0da29acf6b444190735fo2f";
+  let apiUrl = `${endPoint}?lon=${long}&lat=${lat}&key=${apiKey}&units=${units}`;
   console.log(apiUrl);
   axios.get(apiUrl).then(localTemperature);
 }

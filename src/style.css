@@ -3,13 +3,13 @@ body {
   font-family: "Oswald", sans-serif;
   max-width: 800px;
   margin: 30px auto;
-  padding: 70px 70px;
+  padding: 60px 60px;
   line-height: 1.6;
   border: 1px solid #dadde1;
 }
 
 .container {
-  text-align: center;
+  text-align: left;
   font-size: 18px;
 }
 
