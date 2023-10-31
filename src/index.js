@@ -7,7 +7,7 @@ function formatDate() {
     "Wednesday",
     "Thursday",
     "Friday",
-    "Saturday"
+    "Saturday",
   ];
   let moon = [
     "January",
@@ -21,7 +21,7 @@ function formatDate() {
     "September",
     "October",
     "November",
-    "December"
+    "December",
   ];
   let date = presently.getDate();
   let year = presently.getFullYear();
@@ -73,9 +73,15 @@ function localTemperature(response) {
   miniTemp.innerHTML = Math.round(response.data.main.temp_min);
   let humidLevel = document.querySelector(".humidity-level");
   humidLevel.innerHTML = `${response.data.main.humidity}% 💧`;
+  let iconElements = document.querySelector("#icon-element");
+  iconElements.setAttribute(
+    "i",
+    `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
 }
 
 function gotPosition(position) {
+  console.log(position.data);
   let lat = position.coords.latitude;
   let long = position.coords.longitude;
   let units = "metric";
