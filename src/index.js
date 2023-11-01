@@ -77,6 +77,11 @@ function localTemperature(response) {
   let windElement = document.querySelector(".wind-speed");
   let wind = Math.round(response.data.wind.speed);
   windElement.innerHTML = `${wind}km/h`;
+  let condition = document.querySelector("#sky-condition");
+  condition.innerHTML = response.data.condition.description;
+  let forecastElement = document.querySelector("#icon-element");
+  forecastElement.innerHTML = `<img src="${response.data.condition.icon_url}" class="iconForecast"
+          id="icon-element" />`;
 }
 
 function gotPosition(position) {

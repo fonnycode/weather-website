@@ -1,11 +1,13 @@
 body {
+  text-align: center;
   color: rgba(46, 47, 45, 0.805);
   font-family: "Oswald", sans-serif;
   max-width: 800px;
-  margin: 30px auto;
-  padding: 60px 60px;
-  line-height: 1.6;
+  margin: 40px auto;
+  padding: 60px 8px;
+  line-height: 2;
   border: 1px solid #dadde1;
+  border-radius: 40px;
 }
 
 .container {
@@ -24,7 +26,10 @@ body {
 .city {
   font-size: 65px;
   text-transform: capitalize;
+  text-align: center;
 }
+
+
 
 .temperature {
   font-size: 45px;
@@ -40,12 +45,12 @@ body {
   text-decoration: none;
 }
 
-.sun-icon {
-  font-size: 120px;
+.bg-body-tertiary {
+  display: contents;
 }
 
 .humidity-level {
-
+  line-height: 1px;
   font-size: 18px;
   color: green;
 }
@@ -68,13 +73,14 @@ body {
   font-size: 20px;
 }
 
-.gitLink {
+.getLink {
   text-decoration: none;
   font-size: small;
   color: blue;
 }
 
 .codedBy {
+
   font-size: small;
   color: grey;
 
