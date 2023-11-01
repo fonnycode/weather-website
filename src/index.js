@@ -86,8 +86,8 @@ function localTemperature(response) {
 }
 
 function gotPosition(position) {
-  let long = position.coordinates.longitude;
-  let lat = position.coordinates.latitude;
+  let long = position.coords.longitude;
+  let lat = position.coords.latitude;
   let apiKey = "9tce7490b0da29acf6b444190735fo2f";
   let apiUrl = `https://api.shecodes.io/weather/v1/current?lat=${lat}&lon=${long}&key=${apiKey}&units=metric`;
 
