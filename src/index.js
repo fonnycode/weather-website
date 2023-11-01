@@ -62,7 +62,6 @@ let inputForm = document.querySelector("#searching-forms");
 inputForm.addEventListener("submit", findingCity);
 
 function localTemperature(response) {
-  console.log(response.data);
   let element = document.querySelector("#actual-temp");
   let locationTemp = response.data.temperature.current;
   let resultTemp = Math.round(locationTemp);
