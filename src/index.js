@@ -66,35 +66,36 @@ function localTemperature(response) {
   let element = document.querySelector("#actual-temp");
   let locationTemp = response.data.temperature.current;
   let resultTemp = Math.round(locationTemp);
-  element.innerHTML = `${resultTemp}°C`;
   let foundCity = document.querySelector(".city");
-  foundCity.innerHTML = `${response.data.city}`;
   let feelTemp = document.querySelector(".actual-feel");
   let realFeels = Math.round(response.data.temperature.feels_like);
-  feelTemp.innerHTML = `${realFeels}°C`;
   let humidLevel = document.querySelector(".humidity-level");
-  humidLevel.innerHTML = `${response.data.temperature.humidity}%`;
   let windElement = document.querySelector(".wind-speed");
   let wind = Math.round(response.data.wind.speed);
-  windElement.innerHTML = `${wind}km/h`;
   let condition = document.querySelector("#sky-condition");
-  condition.innerHTML = response.data.condition.description;
   let forecastElement = document.querySelector("#icon-element");
+
+  element.innerHTML = `${resultTemp}°C`;
+  foundCity.innerHTML = `${response.data.city}`;
+  feelTemp.innerHTML = `${realFeels}°C`;
+  humidLevel.innerHTML = `${response.data.temperature.humidity}%`;
+  windElement.innerHTML = `${wind}km/h`;
+  condition.innerHTML = response.data.condition.description;
   forecastElement.innerHTML = `<img src="${response.data.condition.icon_url}" class="iconForecast"
           id="icon-element" />`;
 }
 
 function gotPosition(position) {
-  let long = position.data.coordinates.longitude;
-  let lat = position.data.coordinates.latitude;
+  let long = position.coordinates.longitude;
+  let lat = position.coordinates.latitude;
   let apiKey = "9tce7490b0da29acf6b444190735fo2f";
   let apiUrl = `https://api.shecodes.io/weather/v1/current?lat=${lat}&lon=${long}&key=${apiKey}&units=metric`;
-  console.log(apiUrl);
+
   axios.get(apiUrl).then(localTemperature);
 }
-function getCurrentPosition(events) {
-  events.preventDefault();
-  navigator.geolocation.getCurrentPosition();
+function getCurrentPosition() {
+  navigator.geolocation.getCurrentPosition(gotPosition);
 }
+
 let buttonLoc = document.querySelector("#locally-button");
 buttonLoc.addEventListener("click", getCurrentPosition);
