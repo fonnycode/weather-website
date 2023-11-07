@@ -3,11 +3,12 @@ body {
   color: rgba(46, 47, 45, 0.805);
   font-family: "Oswald", sans-serif;
   max-width: 800px;
-  margin: 40px auto;
-  padding: 60px 8px;
+  margin: 50px auto;
+  padding: 60px 10px;
   line-height: 1.5;
   border: 1px solid #dadde1;
   border-radius: 40px;
+
 }
 
 .container {
@@ -16,35 +17,29 @@ body {
 }
 
 .city {
-  font-size: 65px;
+  font-size: 50px;
   text-transform: capitalize;
   text-align: center;
+
 }
 
-.localDate {
-  font-weight: 300;
-  font-size: 18px;
-}
-
+.localDate,
 .localTime {
   font-weight: 300;
-  font-size: 18px;
+  font-size: 15px;
+
 }
 
-
 .temperature {
-  font-size: 38px;
+  font-size: 35px;
 }
 
 .icon-weather-element {
-  font-size: 48px;
+  size: 50px 50px;
+
 }
 
-.celcius-c {
-  font-size: 25px;
-  text-decoration: none;
-}
-
+.celcius-c,
 .celciuss {
   font-size: 25px;
   text-decoration: none;
@@ -54,24 +49,14 @@ body {
   display: contents;
 }
 
-.humidity-level {
-  line-height: 1px;
-  font-size: 18px;
-  color: green;
-}
-
-.actual-feel {
-
-  font-size: 18px;
-  color: green;
-}
-
+.humidity-level,
+.actual-feel,
 .wind-speed {
-
-  font-size: 18px;
+  line-height: 2px;
+  font-size: 15px;
   color: green;
-}
 
+}
 
 .getLink {
   text-decoration: none;

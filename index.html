@@ -24,47 +24,39 @@
         <input class="form-control me-1" id="search-cities" placeholder="Search location" aria-label="Search">
         <button class="btn btn-outline-secondary type=" submit">Search</button>
       </form>
-      <button type="button" class="btn btn-outline-secondary" id="locally-button">Current Location</button>
 
     </div>
   </nav>
 
-  <div class="city" id="city-selected">Montreal</div>
+  <div class="city" id="city-selected"></div>
+  <span class="localDate" id="actual-date">
+  </span>
+  <span class="localTime" id="actual-time"></span>
   <div class="container">
     <div class="row">
       <div class="col-4">
-
-
-        <div class="localDate" id="actual-date">
-          Thursday, 28 September 2023
-        </div>
-        <span class="localTime" id="actual-time"> Local Time 17:31</span>
+        <strong class="temperature" id="actual-temp"></strong>
         </br>
-        <span class="temperature" id="actual-temp"> 11°C</span>
-
-
-      </div>
-
-      <div class="col-4">
-
-        <div class="icon-weather-element" id="icon-element">🌥️</div>
-        <strong id="sky-condition">broken clouds</strong>
+        <em id="sky-condition"></em>
       </div>
       <div class="col-4">
-
+        <div class="icon-weather-element" id="icon-element"></div>
+      </div>
+      <div class="col-4">
         Humidity:
-        <span class="humidity-level">84% </span>
+        <span class="humidity-level"></span>
         </br>
         Real Feel:
-        <span class="actual-feel"> 22°C </span>
+        <span class="actual-feel"></span>
         </br>
         Wind:
-        <span class="wind-speed"> 1 km/h </span>
+        <span class="wind-speed"></span>
 
       </div>
     </div>
   </div>
   </div>
+
   <hr>
   <small> Coded by Fonny Chandra is </small> <a href="https://github.com/fonnycode/weather-website" target="_blank"
     class="getLink"> Open-source on GitHub </a>
