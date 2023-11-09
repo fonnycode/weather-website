@@ -17,54 +17,53 @@
 </head>
 
 <body>
-
-  <nav class="navbar bg-body-tertiary">
-    <div class="container-fluid">
-      <form class="d-flex" role="search" id="searching-forms">
-        <input class="form-control me-1" id="search-cities" placeholder="Search location" aria-label="Search">
-        <button class="btn btn-outline-secondary type=" submit">Search</button>
-      </form>
-
-    </div>
-  </nav>
-
-
-  <div class="city" id="city-selected"></div>
-  <span class="localDate" id="actual-date">
-  </span>
-  <span class="localTime" id="actual-time"></span>
-  <div class="container">
-    <div class="row">
-      <div class="col-4">
-        <strong class="temperature" id="actual-temp"></strong>
-        </br>
-        <em id="sky-condition"></em>
+  <div class="forecast-container">
+    <nav class="navbar bg-body-tertiary">
+      <div class="container-fluid">
+        <form class="d-flex" role="search" id="searching-forms">
+          <input class="form-control me-1" id="search-cities" placeholder="Search location" aria-label="Search">
+          <button class="btn btn-outline-secondary type=" submit">Search</button>
+        </form>
       </div>
-      <div class="col-4">
-        <div class="icon-weather-element" id="icon-element"></div>
-      </div>
-      <div class="col-4">
-        Humidity:
-        <span class="humidity-level"></span>
-        </br>
-        Real Feel:
-        <span class="actual-feel"></span>
-        </br>
-        Wind:
-        <span class="wind-speed"></span>
+    </nav>
+    <div class="city" id="city-selected"></div>
+    <span class="localDate" id="actual-date">
+    </span>
+    <span class="localTime" id="actual-time"></span>
+    <div class="container">
+      <div class="row">
+        <div class="col-4">
+          <strong class="temperature" id="actual-temp"></strong>
+          </br>
+          <em id="sky-condition"></em>
+        </div>
+        <div class="col-4">
+          <div class="icon-weather-element" id="icon-element"></div>
+        </div>
+        <div class="col-4">
+          Humidity:
+          <span class="humidity-level"></span>
+          </br>
+          Real Feel:
+          <span class="actual-feel"></span>
+          </br>
+          Wind:
+          <span class="wind-speed"></span>
 
+        </div>
       </div>
     </div>
-  </div>
-  </div>
-  <div class="weather-forecast" id="forecast"> </div>
+    <div class="weather-forecast" id="forecast"> </div>
 
-  <footer>
-    <small> This project was coded by <a href="https://github.com/fonnycode"> Fonny Chandra </a>, is
-    </small> <a href="https://github.com/fonnycode/weather-website" target="_blank"> open-source on
-      GitHub </a>
-    <small>and</small> <a href="https://bejewelled-starburst-cb3b35.netlify.app/">hosted on Netlify</a>
-  </footer>
+    <footer>
+      <small> This project was coded by <a href="https://github.com/fonnycode"> Fonny Chandra </a>, is
+      </small> <a href="https://github.com/fonnycode/weather-website" target="_blank"> open-source on
+        GitHub </a>
+      <small>and</small> <a href="https://bejewelled-starburst-cb3b35.netlify.app/">hosted on Netlify</a>
+    </footer>
+  </div>
+
+  </div>
   <script src="src/index.js">
   </script>
 

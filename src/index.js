@@ -55,7 +55,7 @@ function localTemperature(response) {
   foundCity.innerHTML = `${response.data.city}`;
   feelTemp.innerHTML = `${realFeels}°C`;
   humidLevel.innerHTML = `${response.data.temperature.humidity}%`;
-  windElement.innerHTML = `${wind}km/h`;
+  windElement.innerHTML = `${wind} km/h`;
   condition.innerHTML = response.data.condition.description;
   forecastElement.innerHTML = `<img src="${response.data.condition.icon_url}" class="iconForecast"
           id="icon-element" />`;
