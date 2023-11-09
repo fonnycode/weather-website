@@ -1,6 +1,6 @@
 let presently = new Date();
 function formatDate() {
-  let days = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"];
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
   let moon = [
     "Jan",
     "Feb",
@@ -59,6 +59,8 @@ function localTemperature(response) {
   condition.innerHTML = response.data.condition.description;
   forecastElement.innerHTML = `<img src="${response.data.condition.icon_url}" class="iconForecast"
           id="icon-element" />`;
+
+  gettingForecast(response.data.city);
 }
 
 function findingCity(event) {
@@ -70,6 +72,41 @@ function findingCity(event) {
   let apiKey = "9tce7490b0da29acf6b444190735fo2f";
   let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${inputCity.value}&key=${apiKey}&units=metric`;
   axios.get(apiUrl).then(localTemperature);
+}
+
+function gettingForecast(city) {
+  let apiKey = "9tce7490b0da29acf6b444190735fo2f";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
+  axios(apiUrl).then(displayingForecast);
+  console.log(apiUrl);
+}
+
+function displayingForecast(response) {
+  console.log(response.data);
+
+  let theDay = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  let forecastHtml = "";
+
+  theDay.forEach(function (daily) {
+    forecastHtml =
+      forecastHtml +
+      `
+<div class="weather-forecast-day">
+  <div class="weather-forecast-date">${daily}</div>
+  <img
+    src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/clear-sky-night.png"
+    alt=""
+    width="36"
+  />
+  <div class="forecast-temperature">
+    <span class="weather-forecast-max">18°</span>
+    <span class="weather-forecast-min">12°</span>
+  </div>
+</div>
+`;
+  });
+  let forecastElement = document.querySelector("#forecast");
+  forecastElement.innerHTML = forecastHtml;
 }
 
 let inputForm = document.querySelector("#searching-forms");

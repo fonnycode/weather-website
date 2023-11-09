@@ -2,7 +2,7 @@ body {
   text-align: center;
   color: rgba(46, 47, 45, 0.805);
   font-family: "Oswald", sans-serif;
-  max-width: 800px;
+  max-width: 860px;
   margin: 50px auto;
   padding: 60px 10px;
   line-height: 1.5;
@@ -15,6 +15,7 @@ body {
   text-align: center;
   font-size: 18px;
 }
+
 
 .city {
   font-size: 50px;
@@ -31,6 +32,7 @@ body {
 }
 
 .temperature {
+  color: #8154ef;
   font-size: 35px;
 }
 
@@ -54,12 +56,38 @@ body {
 .wind-speed {
   line-height: 2px;
   font-size: 15px;
-  color: green;
+  color: #8154ef;
 
 }
 
-.getLink {
-  text-decoration: none;
-  font-size: small;
-  color: blue;
+.weather-forecast {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+  color: black;
+}
+
+.weather-forecast-date {
+  font-size: 16px;
+
+}
+
+.weather-forecast-max {
+  font-size: 13px;
+}
+
+.weather-forecast-min {
+  font-size: 13px;
+  opacity: 0.5;
+}
+
+footer {
+  text-align: center;
+  font-size: 15px;
+  font-weight: 100;
+  color: grey;
+  border-top: 2px solid #f9f7fe;
+  padding: 25px 0 0 0;
 }
